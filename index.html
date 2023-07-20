@@ -1,13 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+
 <body>
-   <script src="./js/main.js"></script>
+    <div class="wrapper">
+        <h1 class="title">Calcola il prezzo del tuo biglietto</h1>
+        <div class="dati-input">
+            <div class="row">
+                <div class="col">
+                    <label for="nome">Nome Cognome</label>
+                    <input id="nome" type="text" name="nome" placeholder="Inserisci il tuo nome">
+                </div>
+
+                <div class="col">
+                    <label for="km">Km da percorrere</label>
+                    <input id="km" type="number" name="km" placeholder="Inserisci i km">
+                </div>
+                <div class="col">
+                    <label for="fascia-eta">Fascia d'eta</label>
+                    <select name="eta" id="fascia d'eta">
+                        <option value="">Seleziona</option>
+                        <option value="minorenne"></option>
+                        <option value="maggiorenne"></option>
+                        <option value="over65"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row hidden" id="error-message">
+            Messaggio di errore
+        </div>
+        <div class="row">
+            <button class="btn" id="bottone" type="button" name="button">Genera</button>
+            <button class="btn" id="annulla" type="button" name="annulla">Annulla</button>
+        </div>
+        <section class="biglietto">
+            <h2 class="title">Il tuo biglietto</h2>
+            <div id="biglietto" class="hidden">
+                <h2>Detaglio passeggeri</h2>
+                <div class="dati">
+                    <div class="nome">
+                        <h2>Nome Passeggero <span id="eta"></span></h2>
+                        <h3 id="nome-passeggero"></h3>
+                    </div>
+                    <div class="offerta">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Offerta</th>
+                                    <th>Carozza</th>
+                                    <th>Codice CP</th>
+                                    <th>Costo biglietto</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span id="offerta-applicata"></span></td>
+                                    <td><span id="carrozza"></span></td>
+                                    <td><span id="codice-cp"></span></td>
+                                    <td><span id="costo"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="./js/main.js"></script>
 </body>
+
 </html>
