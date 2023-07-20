@@ -33,7 +33,55 @@ generateBtn.addEventListener("click", function() {
         const basePrice = km * 0.21 ;
         let finalPrice = basePrice ;
         let offer ="nessuna offerta" ;
+         
+        if (age ==="minorenne"){
+            finalPrice = basePrice - (basePrice * 20) / 100;
+            offer = "Under 18"
+        }else if (age === "over65") {
+            finalPrice =basePrice - (basePrice * 40) /100;
+        }
+
+        // Genero il  numero della carozza tra 1 e 8
+        const cabin = Math.floor(Math.random()*8)+1;
+        // Genero codice CP tra 1000 e 9999
+        const code = Math.floor(Math.random()*(9999 - 1000 +1)) + 1000;
+        console.log(code);
+
+        // Stampa dei risultati nel biglietto
+        const biglietto = document.getElementById("biglietto");
+        biglietto.classList.remove("hidden");
+
+        passengerNameElem.innerHTML = name ;
+        offerElem.innerHTML = offer;
+        cabinElem.innerHTML = code;
+        priceElem.innerHTML =  `€ ${finalPrice.toFixed(2)}`;
+
+        // Ripulire i campi
+        nameInput.value = "";
+        kmInput.value = "";
+        ageInput.value = "";
+
+    } else {
+        // Stampo il messaggio di error
+        errorElem.classList.remove("hidden");
     }
     
+});
+
+// Implementazione della funzionalita annulla
+const clearBtn = document.getElementById("annulla");
+clearBtn.addEventListener("click", function(){
+    // Ripulire e nascondere il biglietto 
+    passengerNameElem.innerHTML = "";
+    offerElem.innerHTML = "";
+    cabinElem.innerHTML = "";
+    codeElem.innerHTML = "";
+    priceElem.innerHTML ="";
+    document.getElementById("biglietto").classList.add("hidden");
+
+    // Ripulire gli input
+    nameInput.value = "";
+    kmInput.value = "";
+    ageInput.value ="";
 })
 
